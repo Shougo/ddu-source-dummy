@@ -5,17 +5,21 @@ import {
 import { Denops } from "https://deno.land/x/ddu_vim@v2.4.0/deps.ts";
 import { ActionData } from "https://deno.land/x/ddu_kind_file@v0.3.2/file.ts";
 
-type Params = Record<never, never>;
+type Params = {
+  word: string;
+  display: string;
+}
 
 export class Source extends BaseSource<Params> {
-  override gather(_args: {
+  override gather(args: {
     denops: Denops;
     sourceParams: Params;
   }): ReadableStream<Item<ActionData>[]> {
     return new ReadableStream({
       start(controller) {
         controller.enqueue([{
-          word: "",
+          word: args.sourceParams.word,
+          display: args.sourceParams.display,
         }]);
 
         controller.close();
@@ -24,6 +28,9 @@ export class Source extends BaseSource<Params> {
   }
 
   override params(): Params {
-    return {};
+    return {
+      word: "",
+      display: "",
+    };
   }
 }
