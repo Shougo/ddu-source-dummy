@@ -36,15 +36,15 @@ EXAMPLES				*ddu-source-dummy-examples*
 ==============================================================================
 PARAMS					*ddu-source-dummy-params*
 
-					    	*ddu-source-dummy-param-word*
+						*ddu-source-dummy-param-word*
 word	(string)
-	Word for dummy item.
+	|ddu-item-attribute-word| for dummy item.
 
 	Default: ""
 
-					    	*ddu-source-dummy-param-display*
+					*ddu-source-dummy-param-display*
 display	(string)
-	Display for dummy item.
+	|ddu-item-attribute-display| for dummy item.
 
 	Default: ""
 
