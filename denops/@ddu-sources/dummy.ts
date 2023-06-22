@@ -15,11 +15,13 @@ export class Source extends BaseSource<Params> {
     denops: Denops;
     sourceParams: Params;
   }): ReadableStream<Item<ActionData>[]> {
+    const word = args.sourceParams.word;
+    const display = args.sourceParams.display;
     return new ReadableStream({
       start(controller) {
         controller.enqueue([{
-          word: args.sourceParams.word,
-          display: args.sourceParams.display,
+          word,
+          display: display !== "" ? display : word,
         }]);
 
         controller.close();
