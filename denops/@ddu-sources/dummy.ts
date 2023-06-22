@@ -19,7 +19,7 @@ export class Source extends BaseSource<Params> {
       start(controller) {
         controller.enqueue([{
           word,
-          display: display !== "" ? display : word,
+          display: display !== "" ? display : undefined,
           highlights: [{
             name: "ddu-dummy",
             hl_group: hlGroup,

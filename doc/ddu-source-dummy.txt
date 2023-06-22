@@ -45,6 +45,8 @@ word	(string)
 					*ddu-source-dummy-param-display*
 display	(string)
 	|ddu-item-attribute-display| for dummy item.
+	Ignored if empty string.
+
 	Default: ""
 
 					*ddu-source-dummy-param-hlGroup*
