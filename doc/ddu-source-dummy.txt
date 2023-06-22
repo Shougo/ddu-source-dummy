@@ -45,6 +45,12 @@ word	(string)
 					*ddu-source-dummy-param-display*
 display	(string)
 	|ddu-item-attribute-display| for dummy item.
+	Default: ""
+
+					*ddu-source-dummy-param-hlGroup*
+hlGroup	(string)
+	The hl_group in |ddu-item-attribute-highlights| for a dummy item.
+	The range is the entire string.
 
 	Default: ""
 
