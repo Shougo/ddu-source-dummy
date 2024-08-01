@@ -1,6 +1,8 @@
-import { BaseSource, Item } from "https://deno.land/x/ddu_vim@v3.2.4/types.ts";
-import { Denops } from "https://deno.land/x/ddu_vim@v3.2.4/deps.ts";
-import { ActionData } from "https://deno.land/x/ddu_kind_file@v0.5.0/file.ts";
+import { BaseSource, type Item } from "jsr:@shougo/ddu-vim@^5.0.0/types";
+
+import { type ActionData } from "jsr:@shougo/ddu-kind-file@^0.8.0";
+
+import type { Denops } from "jsr:@denops/core@^7.0.0";
 
 type Params = {
   word: string;
