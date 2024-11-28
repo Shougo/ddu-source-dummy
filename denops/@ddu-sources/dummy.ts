@@ -23,12 +23,14 @@ export class Source extends BaseSource<Params> {
         controller.enqueue([{
           word,
           display: display !== "" ? display : undefined,
-          highlights: [{
-            name: "ddu-dummy",
-            hl_group: hlGroup,
-            col: 1,
-            width: byteLength(display || word),
-          }],
+          highlights: hlGroup !== ""
+            ? [{
+              name: "ddu-dummy",
+              hl_group: hlGroup,
+              col: 1,
+              width: byteLength(display || word),
+            }]
+            : undefined,
         }]);
 
         controller.close();
