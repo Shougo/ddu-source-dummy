@@ -11,12 +11,15 @@ type Params = {
   hlGroup: string;
 };
 
+const ENCODER = new TextEncoder();
+
 export class Source extends BaseSource<Params> {
   override gather(args: {
     denops: Denops;
     sourceParams: Params;
   }): ReadableStream<Item<ActionData>[]> {
     const { word, display, hlGroup } = args.sourceParams;
+    const text = display !== "" ? display : word;
 
     return new ReadableStream({
       start(controller) {
@@ -28,7 +31,7 @@ export class Source extends BaseSource<Params> {
               name: "ddu-dummy",
               hl_group: hlGroup,
               col: 1,
-              width: byteLength(display || word),
+              width: byteLength(text),
             }]
             : undefined,
         }]);
@@ -47,9 +50,6 @@ export class Source extends BaseSource<Params> {
   }
 }
 
-const ENCODER = new TextEncoder();
-function byteLength(
-  str: string,
-) {
+function byteLength(str: string): number {
   return ENCODER.encode(str).length;
 }
