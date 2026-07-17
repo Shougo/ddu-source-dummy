@@ -19,14 +19,16 @@ export class Source extends BaseSource<Params> {
     sourceParams: Params;
   }): ReadableStream<Item<ActionData>[]> {
     const { word, display, hlGroup } = args.sourceParams;
-    const text = display !== "" ? display : word;
+    const hasDisplay = display !== "";
+    const hasHlGroup = hlGroup !== "";
+    const text = hasDisplay ? display : word;
 
     return new ReadableStream({
       start(controller) {
         controller.enqueue([{
           word,
-          display: display !== "" ? display : undefined,
-          highlights: hlGroup !== ""
+          display: hasDisplay ? display : undefined,
+          highlights: hasHlGroup
             ? [{
               name: "ddu-dummy",
               hl_group: hlGroup,
